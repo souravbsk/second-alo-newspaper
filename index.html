@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second ALo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <header class="max-w-full md:w-10/12 px-5 md:px-5 mx-auto">
+        <div class="navbar flex-wrap  gap-4 py-8 border-b-2 border-gray-300 bg-base-100">
+            <div class="flex-1">
+                <a
+                    class="btn btn-ghost normal-case bg-indigo-500 hover:bg-transparent hover:text-indigo-500 rounded-lg text-white text-xl">daisyUI</a>
+                <a
+                    class="btn btn-ghost normal-case hover:bg-indigo-500 bg-transparent text-indigo-500 rounded-lg hover:text-white text-xl">daisyUI</a>
+            </div>
+            <div class="flex-none gap-2">
+                <div class="form-control">
+                    <input type="text" placeholder="Search" class="input input-bordered" />
+                </div>
+                <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                        <div class="w-10 rounded-full">
+                            <img src="assets/Avatar.png" />
+                        </div>
+                    </label>
+                    <ul tabindex="0"
+                        class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                        <li>
+                            <a class="justify-between">
+                                Profile
+                                <span class="badge">New</span>
+                            </a>
+                        </li>
+                        <li><a>Settings</a></li>
+                        <li><a>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- category names start  -->
+
+        <section class="py-5">
+            <div class="flex flex-wrap gap-5 md:gap-0 items-center justify-between" id="category-container">
+                <p><a class="text-lg font-medium" href="">Home</a></p>
+
+            </div>
+        </section>
+        <!-- category names end -->
+    </header>
+    <main class="max-w-full md:w-10/12 px-5 md:px-0 mx-auto">
+
+        <!-- news alert section start  -->
+        <section class="hidden">
+            <div class="bg-white py-6 px-5 mt-6 rounded-lg" id="newsAlert">
+
+            </div>
+        </section>
+        <!-- news alert section end -->
+        <!-- newFilter option start -->
+        <section>
+            <div class="mt-10 gap-5 flex flex-col md:flex-row md:items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <h4 class="text-lg shrink-0 font-medium">Sort By View: </h4>
+                    <select id="sorterValue" class="select rounded-md border-2 border-gray-500 w-6/12 max-w-full">
+                        <option disabled selected>Default</option>
+                        <option value="l2h">Low to High</option>
+                        <option value="h2l">High to Low</option>
+                    </select>
+                </div>
+                <div>
+                    <div>
+                        <button onclick="todayPicker()"
+                            class="btn btn-active rounded-md bg-indigo-500 hover:bg-transparent hover:text-indigo-500 delay-100 border-1 hover:border-indigo-500 text-white">Today’s
+                            Pick</button>
+                        <button onclick="trendingNews()"
+                            class="btn btn-active rounded-md bg-transparent hover:bg-indigo-500 text-indigo-500 delay-100 border-indigo-500 hover:text-white">Trending</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- newFilter option end -->
+        <!-- news feed start  -->
+        <section class="mt-14">
+            <div id="newFeed-container" class="flex flex-col gap-12">
+                <!-- <div class="p-5 bg-white">
+                    <figure class="w-full  max-w-full mx-auto"><img class="w-9/12 max-w-full mx-auto"
+                            src="unsplash_EhTcC9sYXsw.png" alt="Movie" />
+                    </figure>
+                    <div class="card-body py-4 justify-between">
+                        <div class="space-y-2">
+                            <h2 class="card-title text-2xl font-semibold">The best fashion influencers to follow for
+                                sartorial inspiration
+                            </h2>
+                            <p>From our favourite UK influencers to the best missives from Milan and the coolest New
+                                Yorkers, read on some of the best fashion blogs out there, and for even more
+                                inspiration, do
+                                head to our separate black fashion influencer round-up.
+                                Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS
+                                Black
+                                Friday, Missoma Black Friday and Gucci Black Friday...
+                            </p>
+                            <div class="badge badge-warning font-semibold text-lg px-2 py-2 text-black">trending...
+                            </div>
+                            <div class="badge badge-warning font-semibold text-lg px-2 py-2 text-black">badge...
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-8">
+                            <div class="flex items-center gap-3">
+                                <div class="avatar">
+                                    <div class="w-14">
+                                        <img class="object-cover" src="assets/Avatar.png" />
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Jane Cooper</h4>
+                                    <p>Jan 10, 2022 </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-eye"></i>
+                                <span class="font-semibold">1.5M</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <section>
+                <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+                <div class="modal">
+                    <div class="modal-box w-11/12 rounded-2xl max-w-5xl">
+                        <div class="modal-action">
+                            <label for="my-modal-5"
+                                class="btn text-3xl py-2 px-2 flex items-center justify-center text-white"><i
+                                    class="fa-solid fa-circle-xmark"></i></label>
+                        </div>
+                        <div class="md:p-5 bg-white">
+                            <figure class="w-full max-w-full mx-auto"><img id="newS-photo"
+                                    class="w-full max-w-full mx-auto" src="" alt="Movie" />
+                            </figure>
+                            <div class="space-y-3 py-5 justify-between">
+                                <div class="space-y-2">
+                                    <h2 class="card-title md:text-2xl font-semibold" id="newsTitle">
+                                    </h2>
+                                    <p id="newsDetails">
+                                    </p>
+                                    <div class="flex items-center gap-2">
+                                        <div id="isTrending">
+
+                                        </div>
+                                        <div class="badge badge-warning font-semibold text-lg px-2 py-2 text-black"
+                                            id="rateBadge">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-3 md:justify-between items-center">
+                                    <div class="flex items-center gap-3">
+                                        <div class="avatar">
+                                            <div class="w-14">
+                                                <img id="authorImg" class="object-cover rounded-full" src="" />
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold" id="authorTitle"></h4>
+                                            <p id="authorPera"></p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2" id="newView">
+
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="text-yellow-500" id="ratings">
+                                        </div>
+                                        <span class="font-semibold" id="ratingNumber"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- news feed end -->
+
+    </main>
+    <footer class=" mt-20 shadow-lg p-4 bg-white">
+        <div class="text-center">
+
+            <p class="text-center text-gray-400 font-semibold text-lg">Copyright © 2023 - All right reserved</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
